@@ -1,3 +1,5 @@
-docker pull ghcr.io/tl11717/receiptprocessorimage:latest
+cd .\ReceiptProcessor
 
-docker run -d -p 8080:80 ghcr.io/tl11717/receiptprocessorchallenge:latest
+docker build -t tl11717/receiptprocessorimage:latest .
+
+docker run -d -p 8080:80 tl11717/receiptprocessorimage:latest
