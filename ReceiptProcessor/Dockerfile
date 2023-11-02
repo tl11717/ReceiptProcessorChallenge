@@ -4,6 +4,9 @@
 #For more information, please see https://aka.ms/containercompat
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+LABEL org.opencontainers.image.source="https://github.com/tl11717/ReceiptProcessorChallenge"
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
