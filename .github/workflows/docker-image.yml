@@ -1,0 +1,22 @@
+name: Deploy Images to GHCR
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+      push-store-image:
+        runs-on: windows-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+        
+          - name: Build and push Docker image
+            env:
+              GHCR_PAT: ${{ secrets.GHCR_PAT }}
+            run: |
+              docker build -t ghcr.io/tl11717/receiptprocessorchallenge:latest .
+              docker login ghcr.io -u tl11717 --password-stdin <<< $GHCR_PAT
+              docker push ghcr.io/tl11717/receiptprocessorchallenge:latest
