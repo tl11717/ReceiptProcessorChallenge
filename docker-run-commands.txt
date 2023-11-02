@@ -1,5 +1,5 @@
 cd .\ReceiptProcessor
 
-docker build -t tl11717/receiptprocessorimage:latest .
+docker pull ghcr.io/tl11717/receiptprocessorimage:latest
 
-docker run -d -p 8080:80 tl11717/receiptprocessorimage:latest
+docker run ghcr.io/tl11717/receiptprocessorimage:latest
